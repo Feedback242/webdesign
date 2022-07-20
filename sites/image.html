@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vega/Burg</title>
+    <link rel="stylesheet" type="text/css" href="/css/image.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src=" https://kenwheeler.github.io/slick/slick/slick.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
+
+</head>
+<body>
+<div class="image">
+
+        <div class="header">
+            <a href="../homepage.html"><h1 style="font-family: monospace"><span><img class="logo" src="../foto/logo.png" style="height: 100px; width: 130px;  " ></span><span class = "h1">vega</span><span class="header2">burg</span></h1></a>
+        </div>
+        <div class="nav-menu">
+             <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+        </div>
+
+        <p>Restaurant</p>
+
+    <div class="slideshow">
+        <!-- Item -->
+        <div class="item">
+            <div class="img-fill">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Coloured_figures_of_the_birds_of_the_British_Islands_-_issued_by_Lord_Lilford_%2820110857008%29.jpg" alt="">
+                <div class="info">
+
+                        <h3>First image</h3>
+
+                </div>
+            </div>
+        </div>
+        <!-- // Item -->
+        <!-- Item -->
+        <div class="item">
+            <div class="img-fill">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Coloured_figures_of_the_birds_of_the_British_Islands_-_issued_by_Lord_Lilford_%2819678165153%29.jpg" alt="">
+                <div class="info">
+
+                        <h3>Second image</h3>
+
+                </div>
+            </div>
+        </div>
+        <!-- // Item -->
+        <!-- Item -->
+        <div class="item">
+            <div class="img-fill">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Coloured_figures_of_the_birds_of_the_British_Islands_-_issued_by_Lord_Lilford_%2819676550294%29.jpg" alt="">
+                <div class="info">
+
+                        <h3>Third image</h3>
+
+                </div>
+            </div>
+        </div>
+        <!-- // Item -->
+        <!-- Item -->
+        <div class="item">
+            <div class="img-fill">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/American_ornithology%3B_or,_The_natural_history_of_the_birds_of_the_United_States_%28Pl._66%29_%288559914540%29.jpg" alt="">
+                <div class="info">
+
+                        <h3>Fourth image</h3>
+
+                </div>
+            </div>
+        </div>
+        <!-- // Item -->
+    </div>
+</div>
+<script>
+
+    $(document).ready(function(){
+        var slideshow = $(".slideshow")
+        function putImage(src){
+            var item = document.createElement("div")
+            item.className = "item";
+            var img_fill = document.createElement("div")
+            img_fill.className = "img-fill";
+            var img = document.createElement("img")
+            img.src = src;
+            var info = document.createElement("div")
+            item.className = "info";
+            var h3 = document.createElement("h3")
+            h3.textContent = 'image';
+            info.appendChild(h3)
+            img_fill.appendChild(img)
+            img_fill.appendChild(info)
+            item.appendChild(img_fill)
+            slideshow.appendChild(item)
+        }
+        var folder = "../foto/";
+        $.ajax({
+            //This will retrieve the contents of the folder if
+            //the
+            //folder is configured as 'browsable'
+            url: folder,
+            type: 'Get',
+            async: false,
+            cache: false,
+            success: function (data) {
+                //Lsit all file names in the page
+                //
+                console.log(data)
+                },
+            error: function (a) {
+                console.log(a.status)
+            }})
+
+
+        $(".slideshow").slick({
+            autoplay:true,
+            autoplaySpeed:2000,
+            infinite: true,
+            speed:900,
+            slidesToShow:1,
+            slidesToScroll:1,
+            pauseOnHover:true,
+            dots:true,
+            pauseOnDotsHover:true,
+            cssEase:'linear',
+            fade:true,
+            draggable:true,
+            prevArrow:'<button class="PrevArrow"></button>',
+            nextArrow:'<button class="NextArrow"></button>',
+        });
+
+    })
+</script>
+</body>
+</html>

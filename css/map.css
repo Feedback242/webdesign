@@ -1,0 +1,51 @@
+body{
+    display: flow;
+    background: antiquewhite;
+}
+.map {
+    color: #6a7451;
+    font-family: monospace;
+    font-size: 31px;
+    margin-left: 50px;
+    margin-top: 50px;
+
+
+}
+.map .h1{
+    color: #4b5c3c;
+    margin-top: 100px;
+    font-size:62px ;
+    font-weight: normal;
+    margin-bottom: 10px;
+
+}
+.map .header2{
+    margin-top: 100px;
+    color: #4b5c3c;
+    font-size:62px ;
+    font-weight: normal;
+    font-style: italic;
+}
+a{
+    color: #6a7451;
+    position: relative;
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
+}
+a:hover::after{
+    cursor: pointer;
+    width: 100%;
+    left: 0;
+}
+a::after{
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 4px;
+    background-color: #d2b585;
+    left: 50%;
+    bottom: -10px;
+    transition: all 0.3s ease-in-out;
+}

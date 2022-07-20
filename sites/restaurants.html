@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vega/Burg</title>
+
+  <link rel="stylesheet" href="/css/restaurant.css">
+  <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"></link>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <div class="restaurant">
+    <div class="header">
+      <a href="../homepage.html"><h1 style="font-family: monospace"><span><img src="../foto%20html/logo.png" style="height: 100px; width: 130px; "></span><span class = "h1">vega</span><span class="header2">burg</span></h1></a>
+    </div>
+    <div class="topnav">
+      <p> Let's explore Marburg one vegan/ gluten free friendly restaurant at a time!</p>
+      <div class="search-container">
+        <input type="text" placeholder="Search your preference .." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </div>
+    </div>
+
+    <div class=" nav-menu">
+      <nav>
+        <ul>
+          <li>type +</li>
+          <li>category</li>
+          <li>availability</li>
+          <li>place</li>
+          <li>shows</li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="polaroid">
+      <a class = 'image' href="image.html" title="placeholder" ><img  src="/foto/foto3.jpg" alt="foto3"></a>
+      <a  class = 'image' href="image.html" title="placeholder"><img  src="/foto/foto1.jpg" alt="place" title="place"> </a>
+      <a class = 'image' href="image.html" title="placeholder"><img src="/foto/foto4.png" alt="foto4"></a>
+      <a class = 'image' href="image.html" title="placeholder"><img src="/foto/foto2.jpg" alt="foto2"></a>
+      <a class = 'image' href="image.html" title="placeholder" ><img src="/foto/foto3.jpg" alt="foto3"></a>
+      <a class = 'image' href="image.html" title="placeholder"><img src="/foto/foto1.jpg" alt="place" title="place"> </a>
+      <a class = 'image' href="image.html" title="placeholder"><img src="/foto/foto4.png" alt="foto4"></a>
+      <a class = 'image' href="image.html" title="placeholder"><img src="/foto/foto2.jpg" alt="foto2"></a>
+      <a class = 'image' href="image.html" title="placeholder" ><img src="/foto/foto3.jpg" alt="foto3"></a>
+      <a class = 'image' href="image.html" title="placeholder"><img src="/foto/foto1.jpg" alt="place" title="place"> </a>
+      <a class = 'image' href="image.html" title="placeholder"><img src="/foto/foto4.png" alt="foto4"></a>
+    </div>
+  </div>
+
+<script>
+
+  $(function() {
+    $('.toggle-btn').click(function() {
+      $(this).parent().toggleClass('open');
+
+
+    });
+
+    $('.filter-btn a').click(function() {
+      $(this).parent().removeClass('open');
+    });
+
+  });
+  var imgContainer = document.getElementsByClassName("image");
+  console.log(imgContainer.length)
+
+
+  for (let item of imgContainer) {
+    console.log(item)
+    const button = document.createElement("div");
+    const one =  document.createElement('a');
+    const iconOne = document.createElement('i');
+    iconOne.className = 'ion-ios-checkmark-outline';
+    const two =  document.createElement('a');
+    const iconTwo = document.createElement('i');
+    iconTwo.className ='ion-ios-alarm-outline';
+    const three =  document.createElement('a');
+    const iconThree = document.createElement('i');
+    iconThree.className = 'ion-ios-heart'
+    const all =  document.createElement('a');
+    const iconAll = document.createElement('i');
+    iconAll.className = 'ion-ios-checkmark'
+    one.appendChild(iconOne);
+    two.appendChild(iconTwo);
+    three.appendChild(iconThree);
+    all.appendChild(iconAll);
+
+    const toglle =  document.createElement('span');
+
+    button.onclick = function (event){
+      event.preventDefault();
+      event.stopPropagation();
+
+    }
+    toglle.className = 'toggle-btn ion-android-funnel'
+    one.id = 'one'
+    two.id = 'two'
+    three.id = 'three'
+    all.id = 'all'
+
+    button.className = "filter-btn"
+
+    button.appendChild(one)
+    button.appendChild(two)
+    button.appendChild(three)
+    button.appendChild(all)
+    button.appendChild(toglle)
+    item.append(button);
+  }
+
+  $('#all').click(function() {
+
+    $('ul.tasks li').slideDown(300);
+
+  });
+
+  $('#one').click(function() {
+    $('.tasks li:not(.one)').slideUp(300, function() {
+      $('.one').slideDown(300);
+
+    });
+  });
+
+  $('#two').click(function() {
+    $('.tasks li:not(.two)').slideUp(300, function() {
+      $('.two').slideDown(300);
+
+    });
+  });
+  $('#three').click(function() {
+    $('.tasks li:not(.three)').slideUp(300, function() {
+      $('.three').slideDown(300);
+
+    });
+  });
+</script>
+</body>
+</html>
